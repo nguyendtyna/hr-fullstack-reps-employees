@@ -10,11 +10,7 @@ const connection = mysql.createConnection({
 connection.connect();
 
 const retrieveAllEmployees = (cb) => {
-  connection.query("SELECT * FROM employees", function (
-    error,
-    results,
-    fields
-  ) {
+  connection.query("SELECT * FROM employees", (error, results) => {
     if (error) {
       cb(error, null);
     } else {
@@ -23,6 +19,18 @@ const retrieveAllEmployees = (cb) => {
   });
 };
 
+// Query a single employee from the database
+const retrieveEmployee = (id, cb) => {
+  connection.query("SELECT * FROM employees WHERE id = ?", id, (err, results) => {
+    if (err) {
+      cb(err, null);
+    } else {
+      cb(null, results);
+    }
+  });
+};
+
 module.exports = {
   retrieveAllEmployees,
+  retrieveEmployee
 };
