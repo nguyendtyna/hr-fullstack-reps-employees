@@ -18,10 +18,6 @@ app.get("/api/employees", (req, res) => {
 
   // Respond with all employees from the database
   queries.retrieveAllEmployees((err, results) => {
-    // console.log("Results from GET request: ", results);
-    if (err) {
-      res.status(400).send(err);
-    }
     // Send the response
     res.status(200).send(results);
   })
@@ -34,9 +30,6 @@ app.get("/api/employees/:id", (req, res) => {
   let employeeId = req.params.id;
   // Respond with a single employee from the database by id
   queries.retrieveEmployee(employeeId, (err, results) => {
-    if (err) {
-      res.status(400).send(err);
-    }
     res.status(200).send(results);
   })
 })

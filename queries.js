@@ -10,9 +10,9 @@ const connection = mysql.createConnection({
 connection.connect();
 
 const retrieveAllEmployees = (cb) => {
-  connection.query("SELECT * FROM employees", (error, results) => {
-    if (error) {
-      cb(error, null);
+  connection.query("SELECT * FROM employees", (err, results) => {
+    if (err) {
+      cb(err, null);
     } else {
       cb(null, results);
     }
