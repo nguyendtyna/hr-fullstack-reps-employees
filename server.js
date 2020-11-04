@@ -16,8 +16,15 @@ app.get("/api/employees", (req, res) => {
   // Log to the node server
   // console.log("Successful GET route for all the employees");
 
-  // Send the response
-  res.send("all the employees");
+  // Respond will all employees from the database
+  queries.retrieveAllEmployees((err, results) => {
+    // console.log("Results from GET request: ", results);
+    if (err) {
+      res.status(400).send(err);
+    }
+    // Send the response
+    res.status(200).send(results);
+  })
 });
 
 app.get("/api/employees/:id", (req, res) => {
