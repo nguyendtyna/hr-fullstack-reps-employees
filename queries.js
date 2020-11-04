@@ -6,6 +6,7 @@ const connection = mysql.createConnection({
   database: "fullstackreps",
 });
 
+// Set up a connection to the database
 connection.connect();
 
 const retrieveAllEmployees = (cb) => {
