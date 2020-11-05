@@ -15,7 +15,7 @@ class App extends Component {
       <div>
         <h1>Full Stack Reps!</h1>
 
-        <EmployeeList />
+        <EmployeeList employees={exampleEmployees}/>
 
         {/* form to choose single employee */}
         <form>
@@ -24,7 +24,7 @@ class App extends Component {
         </form>
 
         {/* if an employee is selected, show that employee here */}
-        <Employee />
+        {/* <Employee /> */}
       </div>
     );
   }
